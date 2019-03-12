@@ -1625,7 +1625,7 @@ var zones  = (function() {
         $.ajax({
             'async': false,
             'global': false,
-            'url': '/data_viz_demos/shapes/dzones.geojson',
+            'url': '/data_vis_and_mapping_for_bwc/shapes/dzones.geojson',
             'dataType': "json",
             'success': function (data) {
                 json = data;
