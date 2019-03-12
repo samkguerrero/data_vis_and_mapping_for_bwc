@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Data Visualization Tracker</title>
+
+    <link rel='stylesheet' href='css/style.css' />
+    <link rel="stylesheet" href="css/all.css">
+    <!-- <link rel="stylesheet" href="css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+    <link href='css/mapbox.css' rel='stylesheet' />
+    <link href='css/mapbox-gl.css' rel='stylesheet' />
+    <script src='js/mapbox-gl.js'></script>
+    <link href='css/css.css' rel='stylesheet' type='text/css'>
+    <base target="_parent">
+
+  </head>
+  <body style="padding: 20px" >
+    <div class="description">
+        <h2>Interactive Data visualization demo</h2>
+        On the left is the data represented spatially. Each point is a case and the case status is color coded.<br/>
+        The bar graph on the right shows the counts for each case status per field staff.
+    </div>
+    <div id="map">
+      <nav id='filter-group' class='filter-group'></nav>
+        <div id='legend' class='legend'>
+          <h4><u>Case Status</u></h4>
+          <div><span style='background-color: #999999'></span>Unassigned</div>
+          <div><span style='background-color: #A7C636'></span>Complete</div>
+          <div><span style='background-color: #FC921F'></span>Pending</div>
+          <div><span style='background-color: #1A1A1A'></span>Refusal</div>
+          <div><span style='background-color: #149ECE'></span>Assigned</div>
+          <div><span style='background-color: #ED5151'></span>Incomplete</div>
+        </div>
+    </div>
+    <div id="myBarChartDiv">
+      <canvas id="myBarChart" width="100%" height="100%"></canvas>
+    </div>
+    <table id="vizTable">
+      <tr>
+        <th id="vizTH">Pie chart showing counts of each status type per district.</th>
+        <th id="vizTH">Radar chart showing counts of each status type per district.</th>
+      </tr>
+      <tr>
+        <td id="vizTD">
+          <table id="tabletable">
+            <tr>
+              <th><h3>Lincoln Creek</h3></th>
+            </tr>
+            <tr>
+              <td><canvas id="myChart1" ></canvas></td>
+            </tr>
+            <tr>
+              <th><h3>Gibson</h3></th>
+              <th><h3>Fort Hall</h3></th>
+            </tr>
+            <tr>
+              <td><canvas id="myChart2" ></canvas></td>
+              <td><canvas id="myChart3" ></canvas></td>
+            </tr>
+            <tr>
+              <th><h3>Bannock Creek</h3></th>
+              <th><h3>Ross Fork</h3></th>
+            </tr>
+            <tr>
+              <td><canvas id="myChart4" ></canvas></td>
+              <td><canvas id="myChart5" ></canvas></td>
+            </tr>
+          </table>
+        </td>
+        <td id="vizTD">
+          <table id="tabletable">
+            <tr>
+              <td></td>
+              <td><canvas id="myChart1ra" ></canvas></td>
+            </tr>
+            <tr>
+              <td><canvas id="myChart2ra" ></canvas></td>
+              <td><canvas id="myChart3ra" ></canvas></td>
+            </tr>
+            <tr>
+              <td><canvas id="myChart4ra" ></canvas></td>
+              <td><canvas id="myChart5ra" ></canvas></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <th id="vizTH">Polar chart showing counts of each status type per district.</th>
+        <th id="vizTH">Doughnut chart showing the number of completed cases per field staff in each district.</th>
+      </tr>
+      <tr>
+        <td id="vizTD">
+          <table id="tabletable">
+            <tr>
+              <th><h3>Lincoln Creek</h3></th>
+            </tr>
+            <tr>
+              <td><canvas id="myChart1po" ></canvas></td>
+            </tr>
+            <tr>
+              <th><h3>Gibson</h3></th>
+              <th><h3>Fort Hall</h3></th>
+            </tr>
+            <tr>
+              <td><canvas id="myChart2po" ></canvas></td>
+              <td><canvas id="myChart3po" ></canvas></td>
+            </tr>
+            <tr>
+              <th><h3>Bannock Creek</h3></th>
+              <th><h3>Ross Fork</h3></th>
+            </tr>
+            <tr>
+              <td><canvas id="myChart4po" ></canvas></td>
+              <td><canvas id="myChart5po" ></canvas></td>
+            </tr>
+          </table>
+        </td>
+        <td id="vizTD">
+          <table id="tabletable">
+            <tr>
+              <th></th>
+              <th><h3>Lincoln Creek</h3></th>
+            </tr>
+            <tr>
+              <td></td>
+              <td><canvas id="myChart1do" ></canvas></td>
+            </tr>
+            <tr>
+              <th><h3>Gibson</h3></th>
+              <th><h3>Fort Hall</h3></th>
+            </tr>
+            <tr>
+              <td><canvas id="myChart2do" ></canvas></td>
+              <td><canvas id="myChart3do" ></canvas></td>
+            </tr>
+            <tr>
+              <th><h3>Bannock Creek</h3></th>
+              <th><h3>Ross Fork</h3></th>
+            </tr>
+            <tr>
+              <td><canvas id="myChart4do" ></canvas></td>
+              <td><canvas id="myChart5do" ></canvas></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <!--<h1>Data Visualization Demo</h1>
+    <a href="/bar">Bar</a>
+    <a href="/pie">Pie</a>
+    <a href="/doughnut">Doughnut</a>
+    <a href="/radar">Radar</a>
+    <a href="/polar">Polar</a>-->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <script src='js/mapbox.js'></script>
+    <script src='js/mapbox-gl.js'></script>
+    <script src="js/07d36eac3e.js"></script>
+    <script src="js/esri-leaflet.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+  </body>
+</html>
