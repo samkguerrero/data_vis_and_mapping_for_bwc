@@ -4,7 +4,7 @@ function init() {
 mapboxgl.accessToken = 'pk.eyJ1IjoiYmlnd2F0ZXJzYW0iLCJhIjoiY2oydzNpcGpsMDA5eTJ4cW9rejc4Nm0zOCJ9.oBZa3Bwk-KlRSV6uN7xlqQ';
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox:/data_vis_and_mapping_for_bwc/styles/mapbox/streets-v9',
+  style: 'mapbox://styles/mapbox/streets-v9',
   center: [ -112.357175, 42.878066],
   zoom: 9,
   minZoom: 3,
